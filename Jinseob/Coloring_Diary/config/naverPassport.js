@@ -1,6 +1,7 @@
 const passport = require("passport");
 const NaverStrategy = require("passport-naver").Strategy;
 
+
 passport.use(
   new NaverStrategy(
     {
@@ -10,6 +11,7 @@ passport.use(
       passReqToCallback: true,
     },
     (req, accessToken, refreshToken, profile, done) => {
+
       console.log("profile: ", profile);
       var user = profile;
       done(null, user);

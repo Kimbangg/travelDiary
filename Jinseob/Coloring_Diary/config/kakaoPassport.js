@@ -1,12 +1,12 @@
 const passport = require("passport");
-const NaverStrategy = require("passport-naver").Strategy;
+const KakaoStrategy = require("passport-kakao").Strategy;
 
 passport.use(
-  new NaverStrategy(
+  new KakaoStrategy(
     {
-      clientID: "fC0eEkcuFtVvRYfQ6OMp",
-      clientSecret: "6sndg6163y",
-      callbackURL: "/auth/naver/callback",
+      clientID: "40f49416515cac34fc348fdea7bc9411",
+      // clientSecret: "AI5ks57hhI",
+      callbackURL: "/auth/kakao/callback",
       passReqToCallback: true,
     },
     (req, accessToken, refreshToken, profile, done) => {
