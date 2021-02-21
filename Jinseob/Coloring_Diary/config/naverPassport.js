@@ -1,5 +1,6 @@
 const passport = require("passport");
 const NaverStrategy = require("passport-naver").Strategy;
+const naverUsers = require('../models/naverUsers');
 
 
 passport.use(
@@ -10,12 +11,24 @@ passport.use(
       callbackURL: "/auth/naver/callback",
       passReqToCallback: true,
     },
-    (req, accessToken, refreshToken, profile, done) => {
-
+     (req, accessToken, refreshToken, profile, done) => {  
+     
       console.log("profile: ", profile);
-      var user = profile;
-      done(null, user);
-    }
+      naverUsers.findOne({ id: profile.id }, (err, user) => {
+        if (err) res.send(err);
+        if (user) {
+          done(null, user);
+        } else {
+          let newUser = new naverUsers({ id: profile.id, displayName: profile.displayName});
+          newUser.save((errs, users) => {
+            if (errs) res.send(errs);
+            console.log("success db save");
+            done(null, users);
+          });
+        }
+      });
+
+     }
   )
 );
 

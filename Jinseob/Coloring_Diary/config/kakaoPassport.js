@@ -4,13 +4,13 @@ const KakaoStrategy = require("passport-kakao").Strategy;
 passport.use(
   new KakaoStrategy(
     {
-      clientID: "40f49416515cac34fc348fdea7bc9411",
+      clientID: "d705aa9fac6e6ce0e4a4f700bab7426c",
       // clientSecret: "AI5ks57hhI",
       callbackURL: "/auth/kakao/callback",
       passReqToCallback: true,
     },
     (req, accessToken, refreshToken, profile, done) => {
-      console.log("profile: ", profile);
+      console.table("profile: ", profile);
       var user = profile;
       done(null, user);
     }

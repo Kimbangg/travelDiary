@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 // Schema
-let naverUser = mongoose.Schema({
+let naverUser = new Schema({
 
     id: { type: String /*, required: true*/ },
-    email:{type: String},
+    emails:{type: String},
     displayName:{type: String},
     nickname: { type: String },
-    profile_image: { type: Image },
-    age: { type: Number },
-    birthday:{type: Number},
+    age: { type: String },  
+    birthday:{type: String},
 
     
 });
 
-module.exports = mongoose.model("nUsers", naverUser);
+module.exports = mongoose.model('naverUser', naverUser);

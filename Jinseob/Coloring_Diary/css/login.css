@@ -1,0 +1,22 @@
+#login{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 0px auto;
+
+}
+#googlebutton{
+    border: 0;
+    background-color: white;
+}
+#kakaobutton{
+    border: 0;
+    background-color: white;
+}
+#naverbutton{
+    border: 0;
+    background-color: white;
+}

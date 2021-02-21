@@ -5,6 +5,7 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const MONGODB_URL = 'mongodb+srv://xmcdk:kwak@741852@dbdb.8enzp.mongodb.net/<travelDiary>?retryWrites=true&w=majority'
 const app = express();
+const ejs = require("ejs");
 
 
 // DB Setting
@@ -44,4 +45,13 @@ app.use("/auth", require("./routes/auth"));
 const port = 3000;
 app.listen(port, () => {
   console.log('server on! http://localhost:'+port);
+});
+
+app.use(express.static(__dirname + "/views/auth"));
+
+app.get('/iconspace', function(req, res){
+  fs.readFile("/images/iconspace/Rectangle 1.png", function(err,data){
+    res.writeHead(200, { 'Content-Type':'text/html'});
+    res.end(data);
+  });
 });

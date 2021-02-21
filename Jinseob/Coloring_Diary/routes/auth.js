@@ -18,9 +18,6 @@ router.get("/google/callback", googlePassport.authenticate("google"), authSucces
 
 router.get("/naver", naverPassport.authenticate("naver", { scope: ["profile"] }));
 router.get("/naver/callback", naverPassport.authenticate("naver"), authSuccess);
-router.get('/login/naver', passport.authenticate('naver'));
-
-
 
 router.get("/kakao", kakaoPassport.authenticate("kakao", { scope: ["profile"] }));
 router.get("/kakao/callback", kakaoPassport.authenticate("kakao"), authSuccess);
